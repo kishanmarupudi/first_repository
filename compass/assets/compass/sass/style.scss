@@ -1,0 +1,14 @@
+@import 'compass/css3';
+
+.shadow {
+    @include box-shadow(#000 5px 5px 5px);
+}
+.logo {
+    background-image: image-url("gaya-design-logo.png");
+    width: image-width("gaya-design-logo.png");
+    height: image-height("gaya-design-logo.png");
+}
+
+body{
+	margin:0;
+}

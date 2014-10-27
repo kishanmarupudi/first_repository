@@ -1,0 +1,17 @@
+*{
+	margin: 0;
+	padding:0;
+	box-sizing : border-box;
+}
+.container,.childContainer{
+	min-height: 675px;
+	/*overflow-y:auto;*/
+}
+nav li{
+	display: inline-block;
+	width:15%;
+}
+nav li a{
+	color: #454545;
+	text-decoration: none;
+}

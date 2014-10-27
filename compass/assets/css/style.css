@@ -1,0 +1,18 @@
+/* line 3, ../compass/sass/style.scss */
+.shadow {
+  -webkit-box-shadow: black 5px 5px 5px;
+  -moz-box-shadow: black 5px 5px 5px;
+  box-shadow: black 5px 5px 5px;
+}
+
+/* line 6, ../compass/sass/style.scss */
+.logo {
+  background-image: url('../images/gaya-design-logo.png?1379660744');
+  width: 102px;
+  height: 87px;
+}
+
+/* line 12, ../compass/sass/style.scss */
+body {
+  margin: 0;
+}

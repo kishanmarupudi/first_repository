@@ -1,0 +1,98 @@
+@mixin vendor-prefix($name, $value) {
+  @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+    #{$vendor}#{$name}: #{$value};
+  }
+}
+* {
+  @include vendor-prefix('box-sizing', 'border-box');
+}
+$total: 100;
+$time: 8;
+html, body {
+  height: 100%;margin:0;padding:0;
+}
+@function posOrNeg(){
+  @return random() * 2 - 1;
+}
+body {
+  min-height: 100%;
+  overflow: hidden;
+}
+.wrap {
+  height: 100%;
+  background: black;
+  perspective: 600px;
+  transform-style: preserve-3d;
+}
+.c {
+  background: blue;
+  position: absolute;
+  transform: translate3d(0,0,-600px);
+  border-radius: 50%;
+}
+@for $i from 1 through $total {
+  $hue: 300/$total * $i;
+  $size: random(15) + 10;
+  .c:nth-child(#{$i}){
+    width: $size+px;
+    height: $size+px;
+    bottom: -$size*2+px;
+    left: 50%;
+    margin-left: -$size/2+px;
+    background: hsla($hue, 100%, 50%, 1);
+    -webkit-animation: anim#{$i} $time+s infinite linear;
+    -webkit-animation-delay: ($i * ($time/$total))+s;
+    -moz-animation: anim#{$i} $time+s infinite linear;
+    -moz-animation-delay: ($i * ($time/$total))+s;
+    animation: anim#{$i} $time+s infinite linear;
+    animation-delay: ($i * ($time/$total))+s;
+  }
+  @-webkit-keyframes anim#{$i} {
+    $x: 0;
+    $y: 0;
+    $vx: random(50) * posOrNeg();
+    $vy: -(random(50));
+    $gravity: 1.5;
+     
+    @for $i from 1 through 50 {
+      #{$i * 2%} {
+        $x: $x+$vx;
+        $y: $y+$vy;
+        $vy: $vy+$gravity;
+        transform: translate3d($x+px, $y+px, 0);
+      }
+    }
+  }
+  @-moz-keyframes anim#{$i} {
+    $x: 0;
+    $y: 0;
+    $vx: random(50) * posOrNeg();
+    $vy: -(random(50));
+    $gravity: 1.5;
+     
+    @for $i from 1 through 50 {
+      #{$i * 2%} {
+        $x: $x+$vx;
+        $y: $y+$vy;
+        $vy: $vy+$gravity;
+        transform: translate3d($x+px, $y+px, 0);
+      }
+    }
+  }
+  @keyframes anim#{$i} {
+    $x: 0;
+    $y: 0;
+    $vx: random(50) * posOrNeg();
+    $vy: -(random(50));
+    $gravity: 1.5;
+     
+    @for $i from 1 through 50 {
+      #{$i * 2%} {
+        $x: $x+$vx;
+        $y: $y+$vy;
+        $vy: $vy+$gravity;
+        transform: translate3d($x+px, $y+px, 0);
+      }
+    }
+  }
+}

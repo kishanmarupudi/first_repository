@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang = "en"
+class = "no-js">
+<head>
+<title>checkVideo.html</title>
+<meta charset = "UTF-8" />
+<script type = "text/javascript"
+src = "modernizr.custom.js"></script>
+<script type = "text/javascript">
+function init(){
+var output = document.getElementById("output");
+if (Modernizr.video){
+output.innerHTML =
+"Your browser supports video <br /> ";
+if (Modernizr.video.h264){
+output.innerHTML += "H.264 codec supported <br
+/>";
+} // end if
+if (Modernizr.video.ogg){
+output.innerHTML +=
+"Ogg Theora video codec supported <br />";
+} // end if
+} else {
+output.innerHTML = "Your browser does not support
+the HTML5 video tag"; } // end if
+} // end init
+</script>
+</head>
+<body onload = "init()">
+<h1>Check for HTML5 Video</h1>
+<div id = "output">
+checking video...
+<video src="luffy.mp4" controls></video>
+</div>
+</body>
+</html>

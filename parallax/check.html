@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="checklist">
+		<form action="#">
+			<input type="checkbox" name="hi" id="">
+			<input type="checkbox" name="hiii" id="">
+			<input type="checkbox" name="jii" id="">
+			<input type="checkbox" name="kiii" id="">
+		</form>
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$(".checklist input[type='checkbox']").addClass("radio_checks");
+		$(".radio_checks").change(function(){
+		    if($(this).is(":checked")) {
+		    	$(this).removeClass("radio_checks").addClass("checked");
+		        $('.radio_checks').attr("disabled","disabled");
+		    } else {
+		    	$(this).addClass("radio_checks").removeClass("checked");
+		    	$('.radio_checks').removeAttr("disabled","disabled");
+		    }
+		});
+
+	});
+	</script>
+</body>
+</html>
